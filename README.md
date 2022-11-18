@@ -1,17 +1,19 @@
-## My Project
+## Prerequisites:
+Below packages are needed for parsing the SQL's and reading the Oozie properties file
 
-TODO: Fill this README out!
+- sqlparse==0.4.2
+- jproperties==2.1.1
 
-Be sure to:
+## Usage:
 
-* Change the title in this README
-* Edit your repository description on GitHub
+usage: xml_parser.py [-h] --base-folder BASE_FOLDER --job-name JOB_NAME
+                     --job-version JOB_VERSION --hive-action-version
+                     HIVE_ACTION_VERSION --coordinator-action-version
+                     COORDINATOR_ACTION_VERSION
+                     [--workflow-version [WORKFLOW_VERSION]]
+                     [--properties-file-name [PROPERTIES_FILE_NAME]]
+xml_parser.py: error: the following arguments are required: --base-folder, --job-name, --job-version, --hive-action-version, --coordinator-action-version
 
-## Security
+## Sample command:
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+python oozie_xml_parser.py --base-folder /Users/username/ --job-name sample_oozie_job_name --job-version V3 --hive-action-version 0.2 --coordinator-action-version 0.4 --workflow-version 0.5 --properties-file-name job.coordinator.properties
