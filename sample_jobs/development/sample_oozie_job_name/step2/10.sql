@@ -1,0 +1,1 @@
+insert into base.us_daily select * From base.us_current;

@@ -1,0 +1,1 @@
+insert into base.states_daily select * from base.states_current;

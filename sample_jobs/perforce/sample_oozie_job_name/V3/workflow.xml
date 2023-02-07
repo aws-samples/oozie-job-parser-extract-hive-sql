@@ -1,0 +1,60 @@
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="samplejob">
+	<start to="step1" />
+
+	<action name="step1">
+		<hive xmlns="uri:oozie:hive-action:0.4">
+			<job-tracker>${jobTracker}</job-tracker>
+			<name-node>${nameNode}</name-node>
+			<prepare>
+			</prepare>
+			<job-xml>hive-site.xml</job-xml>
+			<configuration>
+				<property>
+					<name>mapred.job.queue.name</name>
+					<value>${queueName}</value>
+				</property>
+				<property>
+					<name>oozie.hive.defaults</name>
+					<value>hive-site.xml</value>
+				</property>
+			</configuration>
+			<script>step1.q</script>
+			<param>DATE=${dt}</param>
+			<param>HOUR=${hour}</param>
+		</hive>
+		<ok to="step2"/>
+		<error to="fail"/>
+	</action>
+
+	<action name="step2">
+		<hive xmlns="uri:oozie:hive-action:0.4">
+			<job-tracker>${jobTracker}</job-tracker>
+			<name-node>${nameNode}</name-node>
+			<prepare>
+			</prepare>
+			<job-xml>hive-site.xml</job-xml>
+			<configuration>
+				<property>
+					<name>mapred.job.queue.name</name>
+					<value>${queueName}</value>
+				</property>
+				<property>
+					<name>oozie.hive.defaults</name>
+					<value>hive-site.xml</value>
+				</property>
+			</configuration>
+			<script>step2.q</script>
+			<param>DATE=${dt}</param>
+			<param>HOUR=${hour}</param>
+		</hive>
+		<ok to="end"/>
+		<error to="fail"/>
+	</action>
+
+
+	<kill name="fail">
+		<message>Hive failed, error
+			message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+	</kill>
+	<end name="end" />
+</workflow-app>

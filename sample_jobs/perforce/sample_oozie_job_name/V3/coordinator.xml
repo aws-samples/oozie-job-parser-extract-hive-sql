@@ -1,0 +1,35 @@
+<coordinator-app name="${job_name}" start="${start}" end="${end}" frequency="${coord:hours(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
+  <controls>
+    <timeout>${timeOut}</timeout>
+    <concurrency>${concurrency}</concurrency>
+    <execution>${execOrder}</execution>
+    <throttle>${throttle}</throttle>
+  </controls>
+        <input-events>
+        <data-in name="inputInst" dataset="input">
+          <instance>${coord:current(0)}</instance>
+        </data-in>
+        <data-in name="inputInst3P" dataset="input3p">
+          <instance>${coord:current(0)}</instance>
+        </data-in>
+        <data-in name="CoordInputInst1" dataset="Input1">
+        	<instance>${coord:current(-1)}</instance>
+     	</data-in>
+    </input-events>
+
+    <action>
+        <workflow>
+          <app-path>${oozie_app_path}</app-path>
+          <configuration>
+               <property>
+                   <name>dt</name>
+                   <value>${coord:formatTime(coord:nominalTime(), 'yyyy-MM-dd')}</value>
+              </property>
+              <property>
+			  		<name>hour</name>
+			  		<value>${coord:formatTime(coord:nominalTime(), 'HH')}</value>
+		      </property>
+         </configuration>
+        </workflow>
+    </action>
+</coordinator-app>
