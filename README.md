@@ -25,15 +25,17 @@ Below packages are needed for parsing the SQL's and reading the Oozie properties
 	pip install -r requirements.txt
 ```
 ## Usage:
-
-usage: xml_parser.py [-h] --base-folder BASE_FOLDER --job-name JOB_NAME
+```shell
+xml_parser.py [-h] --base-folder BASE_FOLDER --job-name JOB_NAME
                      --job-version JOB_VERSION --hive-action-version
                      HIVE_ACTION_VERSION --coordinator-action-version
                      COORDINATOR_ACTION_VERSION
                      [--workflow-version [WORKFLOW_VERSION]]
                      [--properties-file-name [PROPERTIES_FILE_NAME]]
+
 xml_parser.py: error: the following arguments are required: --base-folder, --job-name, --job-version, --hive-action-version, --coordinator-action-version
 
+```
 
 ## Sample command:
 ```shell
