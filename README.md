@@ -8,7 +8,9 @@ Below packages are needed for parsing the SQL's and reading the Oozie properties
 ## Setup:
 - Install Python3
 - Create a virtual environment 
+```shell
 	python3 -m venv /path/to/new/virtual/environment
+```
 - Activate newly created virtual environment
 	source /path/to/new/virtual/environment/venv/bin/activate
 - Git clone the project
