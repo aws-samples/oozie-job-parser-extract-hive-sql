@@ -13,7 +13,7 @@ Below packages are needed for parsing the SQL's and reading the Oozie properties
 ```
 - Activate newly created virtual environment
 ```shell
-	source /path/to/new/virtual/environment/venv/bin/activate
+	source /path/to/new/virtual/environment/bin/activate
 ```
 - Git clone the project
 ```shell
@@ -37,5 +37,5 @@ xml_parser.py: error: the following arguments are required: --base-folder, --job
 
 ## Sample command:
 ```shell
-	python oozie_xml_parser.py --base-folder ./sample_jobs/ --job-name sample_oozie_job_name --job-version V3 --hive-action-version 0.4 --coordinator-action-version 0.4 --workflow-version 0.4 --properties-file-name job.coordinator.properties
+	python xml_parser.py --base-folder ./sample_jobs/ --job-name sample_oozie_job_name --job-version V3 --hive-action-version 0.4 --coordinator-action-version 0.4 --workflow-version 0.4 --properties-file-name job.coordinator.properties
 ```
