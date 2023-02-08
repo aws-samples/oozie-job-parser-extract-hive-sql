@@ -4,6 +4,18 @@ Below packages are needed for parsing the SQL's and reading the Oozie properties
 - sqlparse==0.4.2
 - jproperties==2.1.1
 
+
+## Setup:
+- Install Python3
+- Create a virtual environment 
+	python3 -m venv /path/to/new/virtual/environment
+- Activate newly created virtual environment
+	source /path/to/new/virtual/environment/venv/bin/activate
+- Git clone the project
+	git clone https://github.com/aws-samples/oozie-job-parser-extract-hive-sql
+- Install dependent packages
+	cd oozie-job-parser-extract-hive-sql
+	pip install -r requirements.txt
 ## Usage:
 
 usage: xml_parser.py [-h] --base-folder BASE_FOLDER --job-name JOB_NAME
@@ -14,6 +26,6 @@ usage: xml_parser.py [-h] --base-folder BASE_FOLDER --job-name JOB_NAME
                      [--properties-file-name [PROPERTIES_FILE_NAME]]
 xml_parser.py: error: the following arguments are required: --base-folder, --job-name, --job-version, --hive-action-version, --coordinator-action-version
 
-## Sample command:
 
-python oozie_xml_parser.py --base-folder /Users/username/ --job-name sample_oozie_job_name --job-version V3 --hive-action-version 0.2 --coordinator-action-version 0.4 --workflow-version 0.5 --properties-file-name job.coordinator.properties
+## Sample command:
+python oozie_xml_parser.py --base-folder ./sample_jobs/ --job-name sample_oozie_job_name --job-version V3 --hive-action-version 0.4 --coordinator-action-version 0.4 --workflow-version 0.4 --properties-file-name job.coordinator.properties
